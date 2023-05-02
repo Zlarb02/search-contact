@@ -1,0 +1,92 @@
+<div *ngIf="!searchInput">
+  <div *ngIf="instanceDeContact.isSupplier" class="card" style="width: 20vw">
+    <h5 class="card-header">Contact</h5>
+    <div
+      class="card-body"
+      style="background: cornflowerblue; text-align: center"
+    >
+      {{ instanceDeContact.firstName }}
+      {{ instanceDeContact.lastName }}
+      {{ instanceDeContact.telephone }}
+
+      <img [src]="instanceDeContact.imgUrl" alt="" width="100%" height="auto" />
+    </div>
+  </div>
+  <div *ngIf="!instanceDeContact.isSupplier" class="card" style="width: 20vw">
+    <h5 class="card-header">Contact</h5>
+    <div
+      class="card-body"
+      style="background: blanchedalmond; text-align: center"
+    >
+      <div>
+        {{ instanceDeContact.firstName }}
+        {{ instanceDeContact.lastName }}
+        {{ instanceDeContact.telephone }}
+
+        <img
+          [src]="instanceDeContact.imgUrl"
+          alt=""
+          style="width: 100%; height: auto"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+  <div
+    *ngIf="
+      (instanceDeContact.firstName
+        .toLowerCase()
+        .includes(searchInput.toLowerCase()) ||
+        instanceDeContact.lastName
+          .toLowerCase()
+          .includes(searchInput.toLowerCase())) &&
+      instanceDeContact.isSupplier
+    "
+    class="card"
+    style="width: 20vw"
+  >
+    <h5 class="card-header">Contact</h5>
+    <div
+      class="card-body"
+      style="background: cornflowerblue; text-align: center"
+    >
+      {{ instanceDeContact.firstName }}
+      {{ instanceDeContact.lastName }}
+      {{ instanceDeContact.telephone }}
+
+      <img [src]="instanceDeContact.imgUrl" alt="" width="100%" height="auto" />
+    </div>
+  </div>
+  <div
+    *ngIf="
+      (instanceDeContact.firstName
+        .toLowerCase()
+        .includes(searchInput.toLowerCase()) ||
+        instanceDeContact.lastName
+          .toLowerCase()
+          .includes(searchInput.toLowerCase())) &&
+      !instanceDeContact.isSupplier
+    "
+    class="card"
+    style="width: 20vw"
+  >
+    <h5 class="card-header">Contact</h5>
+    <div
+      class="card-body"
+      style="background: blanchedalmond; text-align: center"
+    >
+      <div>
+        {{ instanceDeContact.firstName }}
+        {{ instanceDeContact.lastName }}
+        {{ instanceDeContact.telephone }}
+
+        <img
+          [src]="instanceDeContact.imgUrl"
+          alt=""
+          style="width: 100%; height: auto"
+        />
+      </div>
+    </div>
+  </div>
+</div>
