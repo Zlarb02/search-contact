@@ -5,9 +5,9 @@
       class="card-body"
       style="background: cornflowerblue; text-align: center"
     >
-      {{ instanceDeContact.firstName }}
-      {{ instanceDeContact.lastName }}
-      {{ instanceDeContact.telephone }}
+      {{ instanceDeContact.firstName }}<br />
+      {{ instanceDeContact.lastName }}<br />
+      {{ instanceDeContact.telephone }}<br />
 
       <img [src]="instanceDeContact.imgUrl" alt="" width="100%" height="auto" />
     </div>
@@ -19,9 +19,9 @@
       style="background: blanchedalmond; text-align: center"
     >
       <div>
-        {{ instanceDeContact.firstName }}
-        {{ instanceDeContact.lastName }}
-        {{ instanceDeContact.telephone }}
+        {{ instanceDeContact.firstName }}<br />
+        {{ instanceDeContact.lastName }}<br />
+        {{ instanceDeContact.telephone }}<br />
 
         <img
           [src]="instanceDeContact.imgUrl"
@@ -32,7 +32,7 @@
     </div>
   </div>
 </div>
-<div>
+<div *ngIf="searchInput">
   <div
     *ngIf="
       (instanceDeContact.firstName
@@ -51,9 +51,9 @@
       class="card-body"
       style="background: cornflowerblue; text-align: center"
     >
-      {{ instanceDeContact.firstName }}
-      {{ instanceDeContact.lastName }}
-      {{ instanceDeContact.telephone }}
+      {{ instanceDeContact.firstName }}<br />
+      {{ instanceDeContact.lastName }}<br />
+      {{ instanceDeContact.telephone }}<br />
 
       <img [src]="instanceDeContact.imgUrl" alt="" width="100%" height="auto" />
     </div>
@@ -77,9 +77,9 @@
       style="background: blanchedalmond; text-align: center"
     >
       <div>
-        {{ instanceDeContact.firstName }}
-        {{ instanceDeContact.lastName }}
-        {{ instanceDeContact.telephone }}
+        {{ instanceDeContact.firstName }}<br />
+        {{ instanceDeContact.lastName }}<br />
+        {{ instanceDeContact.telephone }}<br />
 
         <img
           [src]="instanceDeContact.imgUrl"
