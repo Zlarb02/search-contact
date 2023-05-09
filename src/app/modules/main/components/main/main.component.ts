@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { ContactsService } from '../../services/contact-list.service';
 import { HeaderComponent } from '../header/header.component';
+import { contact } from 'src/core/models/contact.model';
 
 @Component({
   selector: 'app-main',
@@ -8,17 +9,17 @@ import { HeaderComponent } from '../header/header.component';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
-
-  contacts!: any;
+  contacts: contact[] = [];
   @ViewChild(HeaderComponent) header!: HeaderComponent;
 
-  constructor(private serviceContact:ContactsService){
+  constructor(private serviceContact: ContactsService) { }
+
+  public ngOnInit(): void {
+    this.serviceContact.getContacts().then((contacts: contact[]) => {
+      this.contacts = contacts;
+    }).catch((error: any) => {
+      console.error('Error while fetching contacts', error);
+    });
   }
 
-  ngOnInit(): void {
-    this.contacts = this.serviceContact.getContacts()
-  }
-
-  
-  
 }
